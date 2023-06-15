@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --index: calc(1vh + 1vw);
+}
+
+body {
+    background-color: #000;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: 1.55;
+}
+
+.main-header {
+    position: relative;
+}
+
+.layers {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.layers__header {
+    position: absolute;
+    color: #e4e4e4;
+    text-align: center;
+    z-index: 100;
+    top: calc(var(--index) * 10.8);
+    left: calc(var(--index) * 3);
+    letter-spacing: calc(var(--index) * .1);
+}
+
+.layers__header-title {
+    color: #e4e4e4;
+    font-size: calc(var(--index)*1.75);
+}
+
+.layers__header-text {
+    max-width: calc(var(--index) * 18);
+    font-size: calc(var(--index) * .7 + 4px);
+    color: #cccccc;
+}
+
+.layer {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    will-change: transform;
+}
+
+.layers__back {
+    transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
+    z-index: 1;
+}
+
+.layers__middle {
+    transform: translate3d(0, calc(var(--scrollTop) / 2.5), 0);
+    z-index: 2;
+}
+
+.layers__front {
+    transform: translate3d(0, calc(var(--scrollTop) / 5.5), 0);
+    z-index: 3;
+}
