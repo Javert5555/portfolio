@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/pre-loader.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./libs/swiper/swiper-bundle.min.css">
     <script src="./libs/gsap/gsap.min.js" defer></script>
@@ -27,46 +28,77 @@
                     <div class="layer layers__back" style="background-image: url(./img/header-layer-back.jpg);"></div>
                     <div class="layer layers__middle" style="background-image: url(./img/header-layer-middle.png);"></div>
                     <div class="layer layers__front" style="background-image: url(./img/header-layer-front.png);"></div>
-                    <a class="layers__btn" href="#d">Works</a>
+                    <a class="layers__btn" href="#">Works</a>
                 </div>
             </header>
 
-            <article class="works-article">
+            <section class="works-section">
+
                 <div class="swiper slider">
+                    <h2 class="slider__title">Works</h2>
+
                     <div class="swiper-wrapper slider__wrapper">
 
                         <div class="swiper-slide slider__item">
-                            <div class="slider__item-content">
-                                <div class="slider__item-about">
-                                    <h2 class="slider__item-header">To be continued</h2>
-                                    <p class="slider__item-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid rem ipsa dolores ut quam recusandae fugit pariatur culpa libero quos animi, harum unde quod enim exercitationem incidunt, praesentium repellendus facilis facere iure?</p>
+                            <div class="slider__about" data-swiper-parallax="-45%">
+                                <h3 class="slider__header" >To be continued</h3>
+                                <p class="slider__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid rem ipsa dolores ut quam recusandae fugit pariatur culpa libero quos animi, harum unde quod enim exercitationem incidunt, praesentium repellendus facilis facere iure?</p>
+                                <div class="slider__btn-cont">
+                                    <a id="slider__btn" href="#">GitHub</a>
                                 </div>
-                                <!-- <div> -->
-                                    <!-- 123123 -->
-                                    <img class="slider__item-img" src="./img/works/test.jpg" alt="test">
-                                <!-- </div> -->
                             </div>
                         </div>
 
                         <div class="swiper-slide slider__item">
-                            <div class="main-article__content">
-                                <h2 class="main-article__header">To be continued</h2>
-                                <p class="main-article__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid rem ipsa dolores ut quam recusandae fugit pariatur culpa libero quos animi, harum unde quod enim exercitationem incidunt, praesentium repellendus facilis facere iure?</p>
+                            <div class="slider__about" data-swiper-parallax="-45%">
+                                <h3 class="slider__header">To be continued</h3>
+                                <p class="slider__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid rem ipsa dolores ut quam recusandae fugit pariatur culpa libero quos animi, harum unde quod enim exercitationem incidunt, praesentium repellendus facilis facere iure?</p>
+                                <div class="slider__btn-cont">
+                                    <a id="slider__btn" href="#">GitHub</a>
+                                </div>
                             </div>
-                            <div class="copy" id="d">© Something wrong</div>
                         </div>
 
                         <div class="swiper-slide slider__item">
-                            <div class="main-article__content">
-                                <h2 class="main-article__header">To be continued</h2>
-                                <p class="main-article__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid rem ipsa dolores ut quam recusandae fugit pariatur culpa libero quos animi, harum unde quod enim exercitationem incidunt, praesentium repellendus facilis facere iure?</p>
+                            <div class="slider__about" data-swiper-parallax="-45%">
+                                <h3 class="slider__header">To be continued</h3>
+                                <p class="slider__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid rem ipsa dolores ut quam recusandae fugit pariatur culpa libero quos animi, harum unde quod enim exercitationem incidunt, praesentium repellendus facilis facere iure?</p>
+                                <div class="slider__btn-cont">
+                                    <a id="slider__btn" href="#">GitHub</a>
+                                </div>
                             </div>
-                            <div class="copy" id="d">© Something wrong</div>
                         </div>
 
                     </div>
+                    <div class="swiper-button-next" id="swiper-button-next"></div>
+                    <div class="swiper-button-prev" id="swiper-button-prev"></div>
                 </div>
-            </article>
+            </section>
+
+            <section class="">
+
+            </section>
+
+
+            <div class="loader">
+                <span>L</span>
+                <span>O</span>
+                <span>A</span>
+                <span>D</span>
+                <span>I</span>
+                <span>N</span>
+                <span>G</span>
+                
+                <div class="covers">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+            </div>
 
         </div>
     </div>
