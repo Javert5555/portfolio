@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 html {
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
 }
 
 body {
@@ -80,7 +80,7 @@ body {
 }
 
 .layers__back {
-    transform: translate3d(0, calc(var(--scrollTop) / 1.6), 0);
+    transform: translate3d(0, calc(var(--scrollTop) / 2), 0);
     z-index: 1;
 }
 
@@ -233,10 +233,10 @@ body {
     font-size: calc(var(--index) * 1);
     padding: 10px;
     margin: 0 20px;
-    transition: color .35s ease;
+    transition: color .45s ease;
 }
 
 #swiper-button-prev:hover, #swiper-button-next:hover {
-    color: #fff !important;
+    color: #fff;
     /* color: rgba(141, 141, 141, 0.623); */
 }
