@@ -102,3 +102,33 @@ gsapAnimateTo(sliderHeader, { duration: 1.5, opacity: 1 })
 gsapAnimateTo(sliderDescription, { duration: 1.5, opacity: 1, delay: 0.15 })
 gsapAnimateTo(sliderBtnCont, { duration: 1.5, opacity: 1, delay: 0.3 })
 
+
+
+const collageItems = Array.from(document.querySelectorAll(".about__skill"));
+collageItems.forEach((el, index) => {
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      gsap.from(el, {
+        // start: "top 85%",
+        autoAlpha: 0,
+        y: 150,
+        opacity: 0,
+        duration: .1 + index * .1,
+        // stagger: 0.2,
+        // delay: 1.15,
+        ease: "power1.out"
+      })
+      observer.disconnect()
+    }
+  });
+  observer.observe(el)
+})
+  // ScrollTrigger.create({
+  //   trigger: elem,
+  //   start: "top 85%", // к примеру :)
+  //   animation: gsap.from(elem, {
+      
+  //   })
+  // });
+// }
+// );

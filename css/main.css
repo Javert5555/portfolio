@@ -11,7 +11,8 @@ h1, h2, h3, h4, h5, h6, p {
 
 :root {
     --index: calc(1vh + 1vw);
-    --transition: transform .75s cubic-bezier(.075, .5, 0, 1);;
+    --transition: transform .75s cubic-bezier(.075, .5, 0, 1);
+    --light: #fff;
 }
 
 html {
@@ -63,7 +64,6 @@ body::-webkit-scrollbar-thumb:hover {
     color: #e4e4e4;
     font-size: calc(var(--index)*1.75);
     opacity: 0;
-    will-change: opacity;
 }
 
 .line {
@@ -76,7 +76,6 @@ body::-webkit-scrollbar-thumb:hover {
     background-color: #fff;
     margin: 0 auto calc(var(--index) * 1.5); 
     border-radius: 2px;
-    will-change: width opacity;
 }
 
 .main-header {
@@ -270,7 +269,6 @@ body::-webkit-scrollbar-thumb:hover {
     letter-spacing: calc(var(--index) * .1);
     font-size: calc(var(--index)*1.75);
     margin-bottom: calc(var(--index));
-    will-change: opacity;
     opacity: 0;
 }
 
@@ -376,6 +374,10 @@ body::-webkit-scrollbar-thumb:hover {
 
 }
 
+.about__skills:first-child {
+    margin-top: calc(var(--index) * 2);
+}
+
 /* .about__skills > * {
     flex-basis: 0;
     flex-grow: 1;
@@ -388,9 +390,9 @@ body::-webkit-scrollbar-thumb:hover {
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 190px;
-    height: 190px;
-    margin: 0 calc(var(--index) * .3) 0;
+    width: calc(var(--index) * 8);
+    height: calc(var(--index) * 8);
+    margin: 0 calc(var(--index) * .3) calc(var(--index) * .6);
 }
 
 /* .about__skill:first-child {
@@ -410,11 +412,24 @@ body::-webkit-scrollbar-thumb:hover {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    /* fill: #bcbcbc; */
+    fill: var(--light);
+    width: calc(var(--index) * 5.15);
+    transition: all 1s ease;
+    z-index: 1000;
+}
+
+.about__skill:hover .about__skill-icon {
+    /* position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     fill: #bcbcbc;
     width: calc(var(--index) * 5.15);
     transition: all 1s cubic-bezier(0.235, 0.470, 0.000, 1.000);
-    will-change: transform;
-    z-index: 1000;
+    z-index: 1000; */
+    width: calc(var(--index) * 7.15);
+
 }
 
 .about__skill-description {
@@ -427,10 +442,8 @@ body::-webkit-scrollbar-thumb:hover {
     justify-content: center;
     align-items: center;
     background-color: #98989835;
-    transition: all 1s cubic-bezier(0.235, 0.470, 0.000, 1.000);
+    transition: all .6s ease;
     transform: translate(-50%, -50%);
-    /* will-change: width, height; */
-    will-change: transform;
 }
 
 /* .about__skill:hover {
@@ -448,58 +461,112 @@ body::-webkit-scrollbar-thumb:hover {
 
 .about__skill:hover .about__skill-description {
     background-color: #ffffff;
-    width: calc(var(--index) * 9.5);
-    height: calc(var(--index) * 9.5);
+    width: calc(var(--index) * 10.5);
+    height: calc(var(--index) * 10.5);
+    z-index: 999;
 }
 
-.about__skill:hover .html_logo {
+.python-logo, .redux-logo, .mysql-logo {
+    fill: #bcbcbc;
+    transition: all 1s cubic-bezier(0.235, 0.470, 0.000, 1.000);
+}
+
+.about__skill:hover .html-logo {
     fill: #e44d26;
 }
 
-.about__skill:hover .css_logo {
-    fill: #1a45e1   ;
+.about__skill:hover .css-logo {
+    fill: #1a45e1;
 }
 
-.about__skill:hover .js_logo {
+.about__skill:hover .js-logo {
     fill: #f7df1e;
 }
 
-.about__skill:hover .react_logo {
+.about__skill:hover .react-logo {
     fill: #02d3f7;
 }
 
-.about__skill:hover .vue_logo {
+.about__skill:hover .vue-logo {
     fill: #3fb27f;
 }
 
-.about__skill:hover .nodejs_logo {
+.about__skill:hover .nodejs-logo {
     fill: #599f48;
 }
 
-.about__skill:hover .php_logo {
+.about__skill:hover .php-logo {
     fill: #4d588e;
 }
 
-.about__skill:hover .laravel_logo {
+.about__skill:hover .laravel-logo {
     fill: #f72c1f;
 }
 
-.about__skill:hover .mysql_logo {
-    fill: #080808;
+.about__skill:hover .mysql-logo {
+    fill: #00546B;
 }
 
-.about__skill:hover .mongodb_logo {
+.about__skill:hover .mongodb-logo {
     fill: #47a340;
 }
 
-.about__skill:hover .bootstrap_logo {
+.about__skill:hover .bootstrap-logo {
     fill: #7d57b5;
 }
 
-.about__skill:hover .git_logo {
+.about__skill:hover .mui-logo {
+    fill: #0883ff;
+}
+
+.about__skill:hover .git-logo {
     fill: #f15639;
 }
 
-.about__skill:hover .mui_logo {
-    fill: #0883ff;
+.about__skill:hover .python-logo_up {
+
+    fill: #3675a5;
+}
+
+.about__skill:hover .python-logo_down {
+    fill: #f7d856;
+}
+
+.about__skill:hover .redux-logo {
+    fill: #764ABC;
+}
+
+.webpack-line-logo, .webpack-space-logo, .webpack-cube-logo {
+    transition: all 1s cubic-bezier(0.235, 0.470, 0.000, 1.000);
+}
+
+.webpack-line-logo {
+    /* fill: #fff; */
+    fill: #bcbcbc;
+}
+
+.webpack-space-logo {
+    /* fill: #8ed6fb; */
+    fill: #202020;
+}
+
+.webpack-cube-logo {
+    /* fill: #1c78c0; */
+    fill: #202020;
+}
+
+.about__skill:hover .webpack-line-logo {
+    fill: #fff;
+}
+
+.about__skill:hover .webpack-space-logo {
+    fill: #8ed6fb;
+}
+
+.about__skill:hover .webpack-cube-logo {
+    fill: #1c78c0;
+}
+
+.about__skill:hover .express-logo {
+    fill: #3c4a55;
 }
