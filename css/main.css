@@ -12,7 +12,8 @@ h1, h2, h3, h4, h5, h6, p {
 :root {
     --index: calc(1vh + 1vw);
     --transition: transform .75s cubic-bezier(.075, .5, 0, 1);
-    --light: #fff;
+    --light-icon-color: #bcbcbc;
+    --dark-icon-color: #00000000;
 }
 
 html {
@@ -30,12 +31,12 @@ body {
 
 }
 
-section {
+section, footer {
     min-height: calc(100vh + 1px);
     color: #e4e4e4;
     width: 100%;
     position: relative;
-    padding: calc(var(--index)*1) calc(var(--index) * 1.6);
+    padding: calc(var(--index)) calc(var(--index) * 1.6);
 }
 
 body::-webkit-scrollbar {
@@ -57,44 +58,48 @@ body::-webkit-scrollbar-thumb:hover {
     /* border-radius: 3px; */
 }
 
+.particles {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: -100;
+
+}
+
 .title {
     text-align: center;
-    font-size: calc(var(--index) * 2);
+    /* font-size: calc(var(--index) * 2); */
     letter-spacing: calc(var(--index) * .15);
     color: #e4e4e4;
     font-size: calc(var(--index)*1.75);
-    opacity: 0;
+    /* opacity: 0; */
 }
 
 .line {
     content: "";
     display: block;
     position: relative;
-    width: 0;
+    width: 20px;
     opacity: 0;
     height: 2px;
     background-color: #fff;
-    margin: 0 auto calc(var(--index) * 1.5); 
-    border-radius: 2px;
+    margin: 0 auto calc(var(--index) * 2.25); 
+    /* border-radius: 2px; */
 }
 
 .main-header {
-    position: relative;
-    /* transition: var(--transition);
-    opacity: var(--mainHeaderVisiblePercent); */
-}
-
-.layers {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    flex-direction: column;
+    /* text-align: center; */
     overflow: hidden;
     position: relative;
+    /* opacity: 0; */
 }
 
-.layers::before {
+.main-header::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -102,30 +107,33 @@ body::-webkit-scrollbar-thumb:hover {
     box-shadow: inset 0 0 250px #000000;
 }
 
-.layers__header {
-    position: absolute;
+.main-header__header {
+    /* position: absolute; */
     text-align: center;
-    z-index: 2;
-    top: calc(var(--index) * 10.8);
-    left: calc(var(--index) * 3);
+    z-index: 1000;
+    /* top: calc(var(--index) * 10.8); */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
     letter-spacing: calc(var(--index) * .1);
     font-size: calc(var(--index)*1.75);
-    will-change: transform;
+    /* opacity: 0; */
+    /* will-change: transform;
     transition: var(--transition);
-    transform: translate3d(0, calc(var(--scrollTop) / 2.2), 0);
+    transform: translate3d(0, calc(var(--scrollTop) / 2.2), 0); */
 }
 
-.layers__header-title {
+.main-header__header-title {
     font-size: calc(var(--index)*1.75);
 }
 
-.layers__header-text {
+.main-header__header-text {
     max-width: calc(var(--index) * 18);
     font-size: calc(var(--index) * .7 + 4px);
     color: #cccccc;
+    margin-bottom: 100px;
 }
 
-.layer {
+/* .layer {
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -148,40 +156,61 @@ body::-webkit-scrollbar-thumb:hover {
 .layers__front {
     transform: translate3d(0, calc(var(--scrollTop) / 5.5), 0);
     z-index: 4;
+} */
+
+.layer_new {
+    position: fixed;
+    left: 89%;
+    top: 76%;
+    /* left: 87%;
+    top: 76%; */
+    /* width: 232px; */
+    width: calc(var(--index)*4.75);
+    /* height: 344px; */
+    /* background-size: cover; */
+    z-index: 1000;
+    opacity: 0.3;
+    /* display: none; */
+    /* will-change: transform; */
+    transition: opacity 1.45s cubic-bezier(.075, .5, 0, 1);
+    cursor: pointer;
+    /* transform: translate3d(-50%, calc(var(--scrollTop) / 2), 0); */
 }
 
-.layers__btn {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    top: 80%;
-    /* text-decoration: none; */
+.layer_new:hover {
+    opacity: 1;
+}
+
+/* .layer_new::before {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+    box-shadow: inset 20px -30px 50px 0 rgba(151, 0, 0, 0.4), inset -20px 0 50px 0 rgba(210, 210, 210, 0.4);
+} */
+
+.main-header__btn {
+    text-align: center;
     background: transparent;
     color: #fff;
     cursor: pointer;
     font-size: calc(var(--index) * .75);
     border: 2px solid #cccccc;
-    /* padding: calc(var(--index) * .2) calc(var(--index) * 3); */
     z-index: 100;
     width: 90px;
     height: 90px;
     border-radius: 90%;
     text-transform: uppercase;
-    /* width: 100%; */
-    will-change: transform;
-    /* transition: var(--transition); */
-    /* transform: translate3d(-50%, calc(var(--scrollTop) / 5), 0); */
-    transition: all .7s ease-in-out;
+    transition: border-color .7s ease-in-out;
     overflow: hidden;
 
 }
 
-.layers__btn-arrow {
+.main-header__btn-arrow {
     position: absolute;
     transform: translate(-50%, -150%);
     left: 50%;
     top: 50%;
-    /* background-color: #373737; */
     color: #dcdcdc;
     height: 100%;
     width: 100%;
@@ -192,12 +221,12 @@ body::-webkit-scrollbar-thumb:hover {
     border-radius: 90%;
 }
 
-.layers__arrow-icon {
+.main-header__arrow-icon {
     fill: #bcbcbc;
     height: calc(var(--index) * 1.25);
 }
 
-.layers__btn-text {
+.main-header__btn-text {
     position: absolute;
     transform: translate(-50%, -50%);
     left: 50%;
@@ -206,21 +235,21 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: calc(var(--index) * .6);
 }
 
-.layers__btn:hover .layers__btn-arrow {
+.main-header__btn:hover .main-header__btn-arrow {
     transform: translate(-50%, -50%);
 }
 
-.layers__btn:hover .layers__btn-text {
+.main-header__btn:hover .main-header__btn-text {
     transform: translate(-50%, 600%);
 }
 
 
-.layers__btn:hover {
+.main-header__btn:hover {
     border-color: transparent;
 
 }
 
-/* .layers__btn:before {
+/* .main-header__btn:before {
 	content:'';
 	position: absolute;
 	top: 0;
@@ -231,7 +260,7 @@ body::-webkit-scrollbar-thumb:hover {
 	transition: all 1s cubic-bezier(0.235, 0.470, 0.000, 1.000);
 } */
 
-/* .layers__btn:hover:before {
+/* .main-header__btn:hover:before {
 	width: 100%;
 } */
 
@@ -240,11 +269,13 @@ body::-webkit-scrollbar-thumb:hover {
 .works-section {
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 .slider {
-    height: 87vh;
-    width: auto;
+    height: 74vh;
+    width: 90vw;
+    /* z-index: -100; */
 }
 
 .slider__item {
@@ -336,13 +367,13 @@ body::-webkit-scrollbar-thumb:hover {
 /* ************ */
 /* Work section */
 /* ************ */
-.about-section {
+.soft-skills-section {
     display: flex;
     justify-content: center;
     /* align-items: center; */
 }
 
-.about {
+.soft-skills {
     width: 100%;
     /* border-radius: 30px; */
     /* background-color: #ffffff2f; */
@@ -351,20 +382,20 @@ body::-webkit-scrollbar-thumb:hover {
     
 }
 
-.about__title {
+.soft-skills__title {
     /* text-align: center;
     font-size: calc(var(--index) * 2.3);
     letter-spacing: calc(var(--index) * .15);
     margin: 0 0 calc(var(--index)); */
 }
 
-.about__content {
+.soft-skills__content {
     /* background-color: #98989835; */
     border-radius: 10px;
     /* padding: calc(var(--index)); */
 }
 
-.about__skills {
+.soft-skills__skills {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -374,16 +405,16 @@ body::-webkit-scrollbar-thumb:hover {
 
 }
 
-.about__skills:first-child {
+.soft-skills__skills:first-child {
     margin-top: calc(var(--index) * 2);
 }
 
-/* .about__skills > * {
+/* .soft-skills__skills > * {
     flex-basis: 0;
     flex-grow: 1;
   } */
 
-.about__skill {
+.soft-skills__skill {
     text-decoration: none;
     list-style-type: none; /* Убираем маркеры */
     display: flex;
@@ -393,33 +424,34 @@ body::-webkit-scrollbar-thumb:hover {
     width: calc(var(--index) * 8);
     height: calc(var(--index) * 8);
     margin: 0 calc(var(--index) * .3) calc(var(--index) * .6);
+    opacity: 0;
 }
 
-/* .about__skill:first-child {
+/* .soft-skills__skill:first-child {
     margin-left: 0;
 }
 
-.about__skill:last-child {
+.soft-skills__skill:last-child {
     margin-right: 0;
 } */
 
-/* .about__skill:hover {
+/* .soft-skills__skill:hover {
     padding: calc(var(--index) * 2.25) calc(var(--index) * 4.25);
 } */
 
-.about__skill-icon {
+.soft-skills__skill-icon {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     /* fill: #bcbcbc; */
-    fill: var(--light);
+    fill: var(--light-icon-color);
     width: calc(var(--index) * 5.15);
     transition: all 1s ease;
     z-index: 1000;
 }
 
-.about__skill:hover .about__skill-icon {
+.soft-skills__skill:hover .soft-skills__skill-icon {
     /* position: absolute;
     left: 50%;
     top: 50%;
@@ -429,10 +461,9 @@ body::-webkit-scrollbar-thumb:hover {
     transition: all 1s cubic-bezier(0.235, 0.470, 0.000, 1.000);
     z-index: 1000; */
     width: calc(var(--index) * 7.15);
-
 }
 
-.about__skill-description {
+.soft-skills__skill-description {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -441,98 +472,103 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #98989835;
+    background-color: var(--dark-icon-color);
+    /* opacity: ; */
     transition: all .6s ease;
     transform: translate(-50%, -50%);
+    z-index: 10;
 }
 
-/* .about__skill:hover {
+/* .soft-skills__skill:hover {
     
     background-color: #ffffff;
     width: 210px;
     height: 210px;
 } */
 
-/* .about__skill:hover .about__skill-icon {
+/* .soft-skills__skill:hover .soft-skills__skill-icon {
     -webkit-filter: blur(5px);
     filter: blur(5px);
 } */
 
 
-.about__skill:hover .about__skill-description {
-    background-color: #ffffff;
+.soft-skills__skill:hover .soft-skills__skill-description {
+    background-color: #e2e2e2;
     width: calc(var(--index) * 10.5);
     height: calc(var(--index) * 10.5);
     z-index: 999;
+    /* opacity: 1; */
+
 }
 
 .python-logo, .redux-logo, .mysql-logo {
-    fill: #bcbcbc;
+    /* fill: #bcbcbc; */
+    fill: var(--light-icon-color);
     transition: all 1s cubic-bezier(0.235, 0.470, 0.000, 1.000);
 }
 
-.about__skill:hover .html-logo {
+.soft-skills__skill:hover .html-logo {
     fill: #e44d26;
 }
 
-.about__skill:hover .css-logo {
+.soft-skills__skill:hover .css-logo {
     fill: #1a45e1;
 }
 
-.about__skill:hover .js-logo {
+.soft-skills__skill:hover .js-logo {
     fill: #f7df1e;
 }
 
-.about__skill:hover .react-logo {
+.soft-skills__skill:hover .react-logo {
     fill: #02d3f7;
 }
 
-.about__skill:hover .vue-logo {
+.soft-skills__skill:hover .vue-logo {
     fill: #3fb27f;
 }
 
-.about__skill:hover .nodejs-logo {
+.soft-skills__skill:hover .nodejs-logo {
     fill: #599f48;
 }
 
-.about__skill:hover .php-logo {
+.soft-skills__skill:hover .php-logo {
     fill: #4d588e;
 }
 
-.about__skill:hover .laravel-logo {
+.soft-skills__skill:hover .laravel-logo {
     fill: #f72c1f;
 }
 
-.about__skill:hover .mysql-logo {
+.soft-skills__skill:hover .mysql-logo {
     fill: #00546B;
 }
 
-.about__skill:hover .mongodb-logo {
+.soft-skills__skill:hover .mongodb-logo {
     fill: #47a340;
 }
 
-.about__skill:hover .bootstrap-logo {
+.soft-skills__skill:hover .bootstrap-logo {
     fill: #7d57b5;
 }
 
-.about__skill:hover .mui-logo {
+.soft-skills__skill:hover .mui-logo {
     fill: #0883ff;
 }
 
-.about__skill:hover .git-logo {
+.soft-skills__skill:hover .git-logo {
     fill: #f15639;
 }
 
-.about__skill:hover .python-logo_up {
+.soft-skills__skill:hover .python-logo_up {
 
     fill: #3675a5;
 }
 
-.about__skill:hover .python-logo_down {
+.soft-skills__skill:hover .python-logo_down {
     fill: #f7d856;
 }
 
-.about__skill:hover .redux-logo {
+.soft-skills__skill:hover .redux-logo {
     fill: #764ABC;
 }
 
@@ -542,31 +578,32 @@ body::-webkit-scrollbar-thumb:hover {
 
 .webpack-line-logo {
     /* fill: #fff; */
-    fill: #bcbcbc;
+    /* fill: #bcbcbc; */
+    fill: var(--dark-icon-color);
 }
 
 .webpack-space-logo {
     /* fill: #8ed6fb; */
-    fill: #202020;
+    fill: var(--light-icon-color);
 }
 
 .webpack-cube-logo {
     /* fill: #1c78c0; */
-    fill: #202020;
+    fill: var(--light-icon-color);
 }
 
-.about__skill:hover .webpack-line-logo {
+.soft-skills__skill:hover .webpack-line-logo {
     fill: #fff;
 }
 
-.about__skill:hover .webpack-space-logo {
+.soft-skills__skill:hover .webpack-space-logo {
     fill: #8ed6fb;
 }
 
-.about__skill:hover .webpack-cube-logo {
+.soft-skills__skill:hover .webpack-cube-logo {
     fill: #1c78c0;
 }
 
-.about__skill:hover .express-logo {
+.soft-skills__skill:hover .express-logo {
     fill: #3c4a55;
 }

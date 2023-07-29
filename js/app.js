@@ -7,22 +7,6 @@ window.addEventListener('load', () => { /* Страница загружена, 
 
 const scrolling = window.addEventListener('scroll', e => {
   document.body.style.cssText += `--scrollTop: ${this.scrollY}px`
-  
-  // const element = document.querySelector('.main-header')
-  // const rect = element.getBoundingClientRect()
-  // const viewportHeight = window.innerHeight
-
-  // const visibleHeight = Math.min(viewportHeight, rect.bottom) - Math.max(0, rect.top)
-
-
-  // const visiblePercent = visibleHeight / rect.height
-
-  // if (visiblePercent > 0.6) visiblePercent = 1
-
-  // document.body.style.cssText += `--mainHeaderVisiblePercent: ${visiblePercent}`
-
-
-  // console.log('Visible percent:', visiblePercent)
 })
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
@@ -49,15 +33,47 @@ const mySwiper = new Swiper('.slider', {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
     },
-    loop:true,
+    // loop:true,
     spaceBetween: 28,
-    parallax: true,
+    // parallax: true,
     // mousewheel: true,
 
 })
 
+let anchor = document.querySelector(".layer_new")
 
-document.querySelector(".layers__btn").addEventListener("click", function() {
+// window.addEventListener("scroll", function() {
+//     if (window.scrollY !== 0) {
+//       anchor.style.display = 'block'
+//       anchor.style.opacity = .3
+//     } else {
+//       anchor.style.display = 'none'
+
+//       anchor.style.opacity = 0
+//     }
+// })
+
+// anchor.addEventListener("mouseover", function() {
+//   anchor.style.opacity = 1
+// })
+// anchor.addEventListener("mouseout", function() {
+//   anchor.style.opacity = .3
+// })
+// anchor.addEventListener("click", function() {
+//   anchor.style.opacity = .3
+// })
+  
+
+
+document.querySelector(".layer_new").addEventListener("click", e => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+});
+});
+
+
+document.querySelector(".main-header__btn").addEventListener("click", () => {
     window.scrollTo({
         top: window.innerHeight + 1,
         behavior: 'smooth'
@@ -67,10 +83,16 @@ document.querySelector(".layers__btn").addEventListener("click", function() {
 
 const lines = Array.from(document.querySelectorAll('.line'))
 const titles = Array.from(document.querySelectorAll('.title'))
+const mainHeaderHeader = Array.from(document.querySelectorAll('.main-header__header'))
+const mainHeaderBtn = Array.from(document.querySelectorAll('.main-header__btn'))
+const slider = Array.from(document.querySelectorAll('.slider'))
 const sliderHeader = Array.from(document.querySelectorAll('.slider__header'))
 const sliderDescription = Array.from(document.querySelectorAll('.slider__description'))
 const sliderBtnCont = Array.from(document.querySelectorAll('.slider__btn-cont'))
 const sliderItem = Array.from(document.querySelectorAll('.slider__item'))
+
+const collageItems = Array.from(document.querySelectorAll(".soft-skills__skill"));
+
 
 const gsapAnimateTo = (elements, params) => {
   elements.map(el => {
@@ -96,39 +118,27 @@ const gsapAnimateFrom = (elements, params) => {
   })
 }
 
-gsapAnimateTo(lines, { width: 250, duration: 1.5, opacity: 1 })
-gsapAnimateTo(titles, { duration: 2.5, opacity: 1 })
-gsapAnimateTo(sliderHeader, { duration: 1.5, opacity: 1 })
-gsapAnimateTo(sliderDescription, { duration: 1.5, opacity: 1, delay: 0.15 })
-gsapAnimateTo(sliderBtnCont, { duration: 1.5, opacity: 1, delay: 0.3 })
+const gsapAnimateFromTo = (elements, paramsFrom, paramsTo) => {
+  elements.map(el => {
+    const observer = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          gsap.fromTo(el, paramsFrom, paramsTo)
+          observer.disconnect()
+        }
+      });
+      observer.observe(el)
+  })
+}
 
+gsapAnimateFromTo(lines, {opacity: 0, y: 250, width: 0 }, { opacity: 1, y: 0, width: 250, duration: 1.5 })
+gsapAnimateFromTo(titles, {opacity: 0, y: 250 }, { opacity: 1, y: 0, duration: 1.5 })
 
+gsapAnimateFromTo(slider, {opacity: 0, y: 250 },{ opacity: 1, y: 0, duration: 1.5 })
+gsapAnimateFromTo(sliderHeader, {opacity: 0, x: 150 }, { opacity: 1, x: 0, duration: 1.5 })
+gsapAnimateFromTo(sliderDescription, {opacity: 0, x: 200 }, { opacity: 1, x: 0, duration: 1.5 })
+gsapAnimateFromTo(sliderBtnCont, {opacity: 0, x: 250 }, { opacity: 1, x: 0, duration: 1.5 })
 
-const collageItems = Array.from(document.querySelectorAll(".about__skill"));
-collageItems.forEach((el, index) => {
-  const observer = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) {
-      gsap.from(el, {
-        // start: "top 85%",
-        autoAlpha: 0,
-        y: 150,
-        opacity: 0,
-        duration: .1 + index * .1,
-        // stagger: 0.2,
-        // delay: 1.15,
-        ease: "power1.out"
-      })
-      observer.disconnect()
-    }
-  });
-  observer.observe(el)
-})
-  // ScrollTrigger.create({
-  //   trigger: elem,
-  //   start: "top 85%", // к примеру :)
-  //   animation: gsap.from(elem, {
-      
-  //   })
-  // });
-// }
-// );
+gsapAnimateFromTo(mainHeaderHeader, {opacity: 0, y: 250 },{ opacity: 1, y: 0, duration: 1.5 })
+gsapAnimateFromTo(mainHeaderBtn, {opacity: 0, y: 250 }, { opacity: 1, y: 0, duration: 1.5, delay: 0.3 })
+
+gsapAnimateFromTo(collageItems, {opacity: 0, y: 250 }, { opacity: 1, y: 0, duration: 1.5, delay: 0.3 })
