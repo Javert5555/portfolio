@@ -40,7 +40,7 @@ const mySwiper = new Swiper('.slider', {
 
 })
 
-let anchor = document.querySelector(".layer_new")
+let anchor = document.querySelector(".anchor")
 
 // window.addEventListener("scroll", function() {
 //     if (window.scrollY !== 0) {
@@ -53,7 +53,17 @@ let anchor = document.querySelector(".layer_new")
 //     }
 // })
 
-// anchor.addEventListener("mouseover", function() {
+window.addEventListener('scroll', () => {
+  let windowPosition = window.scrollY;
+  
+  if (windowPosition !== 0) {
+    anchor.classList.remove('top-window')
+  } else {
+    anchor.classList.add('top-window')
+  }
+});
+
+// anchor.addEventListener("mouseover", () => {
 //   anchor.style.opacity = 1
 // })
 // anchor.addEventListener("mouseout", function() {
@@ -65,7 +75,7 @@ let anchor = document.querySelector(".layer_new")
   
 
 
-document.querySelector(".layer_new").addEventListener("click", e => {
+document.querySelector(".anchor").addEventListener("click", e => {
   window.scrollTo({
     top: 0,
     behavior: 'smooth'
