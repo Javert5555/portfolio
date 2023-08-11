@@ -9,11 +9,14 @@ const scrolling = window.addEventListener('scroll', e => {
   document.body.style.cssText += `--scrollTop: ${this.scrollY}px`
 })
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
-ScrollSmoother.create({
-    wrapper: '.wrapper',
-    content: '.content'
-})
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+// ScrollTrigger.normalizeScroll(true)
+
+const smoother = ScrollSmoother.create({
+ content: ".content",
+ smooth: 2,
+ effects: true
+});
 
 // gsap.from(['.layers__header', '.layers__btn'], {
 //     y: 300,
@@ -75,12 +78,12 @@ window.addEventListener('scroll', () => {
   
 
 
-document.querySelector(".anchor").addEventListener("click", e => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-});
-});
+// document.querySelector(".anchor").addEventListener("click", e => {
+//   window.scrollTo({
+//     top: 0,
+//     behavior: 'smooth'
+// });
+// });
 
 
 document.querySelector(".main-header__btn").addEventListener("click", () => {
@@ -101,32 +104,9 @@ const sliderDescription = Array.from(document.querySelectorAll('.slider__descrip
 const sliderBtnCont = Array.from(document.querySelectorAll('.slider__btn-cont'))
 const sliderItem = Array.from(document.querySelectorAll('.slider__item'))
 
-const collageItems = Array.from(document.querySelectorAll(".soft-skills__skill"));
+const technologiesListItems = Array.from(document.querySelectorAll(".technologies__list-item"));
 
-
-const gsapAnimateTo = (elements, params) => {
-  elements.map(el => {
-    const observer = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting) {
-          gsap.to(el, params)
-          observer.disconnect()
-        }
-      });
-      observer.observe(el)
-  })
-}
-
-const gsapAnimateFrom = (elements, params) => {
-  elements.map(el => {
-    const observer = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting) {
-          gsap.from(el, params)
-          observer.disconnect()
-        }
-      });
-      observer.observe(el)
-  })
-}
+const contactsItem = Array.from(document.querySelectorAll(".contacts__item"));
 
 const gsapAnimateFromTo = (elements, paramsFrom, paramsTo) => {
   elements.map(el => {
@@ -151,4 +131,8 @@ gsapAnimateFromTo(sliderBtnCont, {opacity: 0, x: 250 }, { opacity: 1, x: 0, dura
 gsapAnimateFromTo(mainHeaderHeader, {opacity: 0, y: 250 },{ opacity: 1, y: 0, duration: 1.5 })
 gsapAnimateFromTo(mainHeaderBtn, {opacity: 0, y: 250 }, { opacity: 1, y: 0, duration: 1.5, delay: 0.3 })
 
-gsapAnimateFromTo(collageItems, {opacity: 0, y: 250 }, { opacity: 1, y: 0, duration: 1.5, delay: 0.3 })
+gsapAnimateFromTo(technologiesListItems, {opacity: 0, y: 250 }, { opacity: 1, y: 0, duration: 1.5, delay: 0.3 })
+
+gsapAnimateFromTo(contactsItem, {opacity: 0, y: 250 }, { opacity: 1, y: 0, duration: 1.5, delay: 0.3 })
+
+
