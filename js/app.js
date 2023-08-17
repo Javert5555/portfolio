@@ -9,14 +9,14 @@ const scrolling = window.addEventListener('scroll', e => {
   document.body.style.cssText += `--scrollTop: ${this.scrollY}px`
 })
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-// ScrollTrigger.normalizeScroll(true)
+// gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
+// // ScrollTrigger.normalizeScroll(true)
 
-const smoother = ScrollSmoother.create({
- content: ".content",
- smooth: 2,
- effects: true
-});
+// const smoother = ScrollSmoother.create({
+//  content: ".content",
+//  smooth: 2,
+//  effects: true
+// })
 
 // gsap.from(['.layers__header', '.layers__btn'], {
 //     y: 300,
@@ -26,8 +26,8 @@ const smoother = ScrollSmoother.create({
 //     // ease: "back.out(1.7)",
 // })
 
-// gsap.fromTo(".line", { width: 300, duration: 1 });
-// gsap.fromTo(".title", { scaleX: 0 }, { scaleX: 1, duration: 1, transformOrigin: "left" });
+// gsap.fromTo(".line", { width: 300, duration: 1 })
+// gsap.fromTo(".title", { scaleX: 0 }, { scaleX: 1, duration: 1, transformOrigin: "left" })
 
 const mySwiper = new Swiper('.slider', {
     // direction: 'vertical', // вертикальная прокрутка
@@ -57,14 +57,14 @@ let anchor = document.querySelector(".anchor")
 // })
 
 window.addEventListener('scroll', () => {
-  let windowPosition = window.scrollY;
+  let windowPosition = window.scrollY
   
   if (windowPosition !== 0) {
     anchor.classList.remove('top-window')
   } else {
     anchor.classList.add('top-window')
   }
-});
+})
 
 // anchor.addEventListener("mouseover", () => {
 //   anchor.style.opacity = 1
@@ -82,31 +82,33 @@ window.addEventListener('scroll', () => {
 //   window.scrollTo({
 //     top: 0,
 //     behavior: 'smooth'
-// });
-// });
+// })
+// })
 
 
-document.querySelector(".main-header__btn").addEventListener("click", () => {
+document.querySelector(".intro__btn").addEventListener("click", () => {
     window.scrollTo({
         top: window.innerHeight + 1,
         behavior: 'smooth'
-    });
-});
+    })
+})
 
 
 const lines = Array.from(document.querySelectorAll('.line'))
 const titles = Array.from(document.querySelectorAll('.title'))
-const mainHeaderHeader = Array.from(document.querySelectorAll('.main-header__header'))
-const mainHeaderBtn = Array.from(document.querySelectorAll('.main-header__btn'))
+const introHeader = Array.from(document.querySelectorAll('.intro__header'))
+const introBtn = Array.from(document.querySelectorAll('.intro__btn'))
 const slider = Array.from(document.querySelectorAll('.slider'))
 const sliderHeader = Array.from(document.querySelectorAll('.slider__header'))
 const sliderDescription = Array.from(document.querySelectorAll('.slider__description'))
 const sliderBtnCont = Array.from(document.querySelectorAll('.slider__btn-cont'))
 const sliderItem = Array.from(document.querySelectorAll('.slider__item'))
-
-const technologiesListItems = Array.from(document.querySelectorAll(".technologies__list-item"));
-
-const contactsItem = Array.from(document.querySelectorAll(".contacts__item"));
+const aboutListTechnologiesItems = Array.from(document.querySelectorAll(".about_list-technologies-item"))
+const contactsItem = Array.from(document.querySelectorAll(".contacts__item"))
+const aboutInfoTitle = Array(document.querySelector('.about__info-title'))
+const aboutTechnologiesTitle = Array(document.querySelector('.about_technologies-title'))
+const aboutInfoTexts = Array(document.querySelector('.about__info-texts'))
+// .about_technologies-title, .about__info-title
 
 const gsapAnimateFromTo = (elements, paramsFrom, paramsTo) => {
   elements.map(el => {
@@ -115,7 +117,7 @@ const gsapAnimateFromTo = (elements, paramsFrom, paramsTo) => {
           gsap.fromTo(el, paramsFrom, paramsTo)
           observer.disconnect()
         }
-      });
+      })
       observer.observe(el)
   })
 }
@@ -128,10 +130,14 @@ gsapAnimateFromTo(sliderHeader, {opacity: 0, x: 150 }, { opacity: 1, x: 0, durat
 gsapAnimateFromTo(sliderDescription, {opacity: 0, x: 200 }, { opacity: 1, x: 0, duration: 1.5 })
 gsapAnimateFromTo(sliderBtnCont, {opacity: 0, x: 250 }, { opacity: 1, x: 0, duration: 1.5 })
 
-gsapAnimateFromTo(mainHeaderHeader, {opacity: 0, y: 250 },{ opacity: 1, y: 0, duration: 1.5 })
-gsapAnimateFromTo(mainHeaderBtn, {opacity: 0, y: 250 }, { opacity: 1, y: 0, duration: 1.5, delay: 0.3 })
+gsapAnimateFromTo(introHeader, {opacity: 0, y: 250 },{ opacity: 1, y: 0, duration: 1.5 })
+gsapAnimateFromTo(introBtn, {opacity: 0, y: 250 }, { opacity: 1, y: 0, duration: 1.5, delay: 0.3 })
 
-gsapAnimateFromTo(technologiesListItems, {opacity: 0, y: 250 }, { opacity: 1, y: 0, duration: 1.5, delay: 0.3 })
+gsapAnimateFromTo(aboutListTechnologiesItems, {opacity: 0, x: -250 }, { opacity: 1, x: 0, duration: 1.5, delay: 0.3 })
+gsapAnimateFromTo(aboutTechnologiesTitle, {opacity: 0, x: -250 }, { opacity: 1, x: 0, duration: 1.5, delay: 0.3 })
+
+gsapAnimateFromTo(aboutInfoTitle, {opacity: 0, x: 250 }, { opacity: 1, x: 0, duration: 1.5, delay: 0.3 })
+gsapAnimateFromTo(aboutInfoTexts, {opacity: 0, x: 250 }, { opacity: 1, x: 0, duration: 1.5, delay: 0.3 })
 
 gsapAnimateFromTo(contactsItem, {opacity: 0, y: 250 }, { opacity: 1, y: 0, duration: 1.5, delay: 0.3 })
 
