@@ -9,14 +9,14 @@ const scrolling = window.addEventListener('scroll', e => {
   document.body.style.cssText += `--scrollTop: ${this.scrollY}px`
 })
 
-// gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
-// // ScrollTrigger.normalizeScroll(true)
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
+// ScrollTrigger.normalizeScroll(true)
 
-// const smoother = ScrollSmoother.create({
-//  content: ".content",
-//  smooth: 2,
-//  effects: true
-// })
+const smoother = ScrollSmoother.create({
+ content: ".content",
+ smooth: 2,
+ effects: true
+})
 
 // gsap.from(['.layers__header', '.layers__btn'], {
 //     y: 300,
