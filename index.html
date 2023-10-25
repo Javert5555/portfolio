@@ -21,7 +21,7 @@
         <span class="loader"></span>
     </div>
     <canvas class="particles" data-color="#cee9f4"></canvas>
-    <a href="#top" class="anchor top-window">
+    <a href="#" class="anchor top-window">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="anchor-icon" version="1.1" id="XMLID_53_" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
             <g id="up">
                 <g>
@@ -40,13 +40,16 @@
                 <nav class="menu">
                     <ul class="menu__container">
                         <li class="menu__item">
-                            <a class="menu__link" href="#works-section">Projects</a>
+                            <!-- <a class="menu__link" href="#works-section">Projects</a> -->
+                            <button class="menu__link" id="to-works-section">Проекты</button>
                         </li>
                         <li class="menu__item">
-                            <a class="menu__link" href="#about-section">About</a>
+                            <!-- <a class="menu__link" href="#about-section">About</a> -->
+                            <button class="menu__link" id="to-about-section">О себе</button>
                         </li>
                         <li class="menu__item">
-                            <a class="menu__link" href="#contacts-section">Contacts</a>
+                            <!-- <a class="menu__link" href="#contacts-section">Contacts</a> -->
+                            <button class="menu__link" id="to-contacts-section">Контакты</button>
                         </li>
                     </ul>
                 </nav>
@@ -55,29 +58,25 @@
             <section class="intro">
                 <a name="intro"></a>
                     <div class="intro__header">
-                        <h1 class="intro__header-title">Hi, I'm Alexei</h1>
-                        <div class="intro__header-text">Web Developer</div>
+                        <h1 class="intro__header-title">Привет, я Алексей</h1>
+                        <div class="intro__header-text">Веб-разработчик</div>
                     </div>
-                    <button class="intro__btn">
-                        <div class="intro__btn-double-arrow">
-                            
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" class="intro__double-arrow-icon">
-                                <g id="XMLID_1_">
-                                    <path id="XMLID_5_" d="M256,306.5L0,50.5l26.1-26.1L256,253.5L485.1,24.4l26.1,26.1L256,306.5z M256,434.5L26.9,205.5L0.8,231.6   l255.2,256l256-256l-26.1-26.1L256,434.5z"/>
-                                </g>
-                            </svg>
-                        </div>
-                        <!-- <p >Projects</p> -->
-                        <!-- <div class="intro__btn-arrow"> -->
-                            <!-- <svg class="intro__arrow-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "/></svg> -->
+                    <div class="intro__btn-container">
+                        <button class="intro__btn">
+                            <div class="intro__btn-double-arrow">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" class="intro__double-arrow-icon">
+                                    <g id="XMLID_1_">
+                                        <path id="XMLID_5_" d="M256,306.5L0,50.5l26.1-26.1L256,253.5L485.1,24.4l26.1,26.1L256,306.5z M256,434.5L26.9,205.5L0.8,231.6   l255.2,256l256-256l-26.1-26.1L256,434.5z"/>
+                                    </g>
+                                </svg>
+                            </div>
                             <svg class="intro__arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/> </svg> 
-                        <!-- </div> -->
-                        
-                    </button>
+                        </button>
+                    </div>
             </section>
 
             <section class="works-section" id="works-section">
-                <h2 class="slider__title title">Projects</h2>
+                <h2 class="slider__title title">Проекты</h2>
                 <span class="line"></span>
                 <div class="swiper slider">
                     
@@ -133,11 +132,11 @@
 
             <section class="about-section" id="about-section">
                 <div class="about">
-                    <h2 class="about__title title">About</h2>
+                    <h2 class="about__title title">О себе</h2>
                     <span class="line"></span>
                     <div class="about__content">
                         <div class="about_technologies">
-                            <h3 class="about_technologies-title">Technologies I've worked with</h3>
+                            <h3 class="about_technologies-title">Технологии, с которыми я работал</h3>
                             <ul class="about_list-technologies">
                                 <li class="about_list-technologies-item">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="about_list-technologies-item-icon html-logo"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 32l34.9 395.8L191.5 480l157.6-52.2L384 32H0zm308.2 127.9H124.4l4.1 49.4h175.6l-13.6 148.4-97.9 27v.3h-1.1l-98.7-27.3-6-75.8h47.7L138 320l53.5 14.5 53.7-14.5 6-62.2H84.3L71.5 112.2h241.1l-4.4 47.7z"/></svg>
@@ -212,10 +211,10 @@
                         </div>
                         <!-- <div class="about__white-wall"></div> -->
                         <div class="about__info">
-                            <h3 class="about__info-title">A little about me</h3>
+                            <h3 class="about__info-title">Немного обо мне</h3>
                             <div class="about__info-texts">
-                                <p class="about__info-text">My name is Alexey, I am a web developer. At the moment I am studying at the 4th year of DSTU University in the direction of "Computer Security". In my breaks from studying, I am busy learning web technologies and developing my own mini web applications.</p>
-                                <p class="about__info-text">I also have experience with Unix systems (work in the terminal).</p>
+                                <p class="about__info-text">Меня зовут Алексей, я веб-разработчик. На данный момент я учусь на 4 курсе университета ДГТУ на направлении "Компьютерная безопасность". В перерывах между учебой я занят изучением веб-технологий и разработкой собственных мини-веб-приложений.</p>
+                                <p class="about__info-text">У меня также есть опыт работы с системами Unix (работа в терминале).</p>
                             </div>
                         </div>
                     </div>
@@ -224,7 +223,7 @@
 
             <footer class="contacts-section" id="contacts-section">
                 <div class="contacts">
-                    <h2 class="contacts__title title">Contacts</h2>
+                    <h2 class="contacts__title title">Контакты</h2>
                     <span class="line"></span>
                     <ul class="contacts__items">
                         <li class="contacts__item">
